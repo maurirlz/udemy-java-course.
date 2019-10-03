@@ -8,5 +8,8 @@ public class RangeOfByte {
         System.out.println("Byte Minimum Value = "+myMinByteValue);
         System.out.println("Byte Maximum Value = "+myMAXByteValue);
 
+        //Casting example.
+        byte myNewByteValue = (byte) (myMinByteValue / 2);
+
     }
 }

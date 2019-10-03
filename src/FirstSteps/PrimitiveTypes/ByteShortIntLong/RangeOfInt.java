@@ -14,5 +14,7 @@ public class RangeOfInt {
 
         int myMaxIntTest = 2147483647;
 
+        int myTotal = (myMinIntValue / 2);
+
     }
 }

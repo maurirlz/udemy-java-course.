@@ -8,5 +8,8 @@ public class RangeOfShort {
         System.out.println("Short Minimum Value = "+myMinShortValue);
         System.out.println("Short Maximum Value = "+myMAXShortValue);
 
+        // Casting example int to short.
+        short myNewShortValue = (short) (myMinShortValue / 2);
+
     }
 }

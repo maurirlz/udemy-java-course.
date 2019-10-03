@@ -1,4 +1,4 @@
-package FirstSteps.PrimitiveTypes.Challenge;
+package FirstSteps.PrimitiveTypes.ByteShortIntLong.Challenge;
 
 public class PrimitiveTypesChallenge {
     public static void main(String[] args) {

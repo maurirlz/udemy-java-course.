@@ -9,7 +9,11 @@ public class CheckNumberExcercise {
     - "zero" if the parameter number is equal to 0*/
     /*Note: the checkNumber method needs to be defined in public static like we have been doing so far in the course.
     Note: Do not add a main method to your solution code! */
-
+    public static void main(String[] args) {
+        checkNumber(5);
+        checkNumber(-1);
+        checkNumber(0);
+    }
     public static void checkNumber(int number){
         if (number > 0){
             System.out.println("positive");

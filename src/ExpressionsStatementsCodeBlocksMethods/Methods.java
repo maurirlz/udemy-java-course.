@@ -17,6 +17,7 @@ public class Methods {
 
         highScore = calculateScore(gameOver, score, levelCompleted, bonus);
         System.out.println("Your final score was: " + highScore);
+
 /* Create a method called displayHighScorePosition();
    It should recieve a players name as a parameter and a 2nd parameter as a position in the high score table
    You should display the players name along with a message like "Managed to get into position" and the
@@ -34,7 +35,6 @@ public class Methods {
 *  A playerScore of 900
 *  A playerScore of 400
 *  A playerScore of 50*/
-
 
         highScore = 1500;
         int position = calculateHighScorePosition(highScore);
@@ -68,11 +68,11 @@ public class Methods {
     }
 
     public static int calculateHighScorePosition(int playerScore){
-        if (playerScore > 1000){
+        if (playerScore >= 1000){
             return 1;
-        }else if (playerScore > 500 && playerScore < 1000){
+        }else if (playerScore >= 500){
             return 2;
-        }else if (playerScore > 100 && playerScore < 500){
+        }else if (playerScore >= 100){
             return 3;
         }
         return 4;

@@ -7,7 +7,7 @@ public class LastDigitChecker {
     }
     public static boolean hasSameLastDigit(int firstNumber, int secondNumber, int thirdNumber) {
 
-        if ((!isValid(firstNumber)) || (!isValid(secondNumber)) || (!isValid(thirdNumber))) {
+        if ((isValid(firstNumber)) || (isValid(secondNumber)) || (isValid(thirdNumber))) {
 
             return false;
         }
@@ -19,13 +19,7 @@ public class LastDigitChecker {
         return ((firstLastDigit == secondLastDigit) ||  (firstLastDigit == thirdnLastDigit) || (secondLastDigit == thirdnLastDigit));
     }
 
-    public static boolean isValid(int number) {
-        if ((number < 10 || number > 1000)) {
-
-            return false;
-        } else {
-
-            return true;
-        }
+    private static boolean isValid(int number) {
+        return (number < 10 || number > 1000);
     }
 }

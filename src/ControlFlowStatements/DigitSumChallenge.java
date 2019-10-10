@@ -13,6 +13,7 @@ public class DigitSumChallenge {
     public static int sumDigits(int number) {
 
         if ((number <= 9 )) {
+
             return -1;
         }
 

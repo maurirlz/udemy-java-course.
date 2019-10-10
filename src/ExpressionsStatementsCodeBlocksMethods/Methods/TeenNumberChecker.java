@@ -2,6 +2,7 @@ package ExpressionsStatementsCodeBlocksMethods.Methods;
 
 public class TeenNumberChecker {
     public static void main(String[] args) {
+
         int myFirstNumber, mySecondNumber, myThirdNumber;
         myFirstNumber = 0;
         mySecondNumber = 2;

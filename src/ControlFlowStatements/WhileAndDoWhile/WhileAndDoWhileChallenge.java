@@ -5,7 +5,7 @@ public class WhileAndDoWhileChallenge {
 
         int number = 4;
         int finishNumber = 20;
-        int evennumbers = 0;
+        int evenNumbers = 0;
 
         while (number <= finishNumber) {
 
@@ -14,18 +14,17 @@ public class WhileAndDoWhileChallenge {
             if (!isEvenNumber(number)) {
 
                 continue;
-            } else if (isEvenNumber(number)) {
+            }
+            System.out.println("Even number found: " + number);
+            evenNumbers++;
+            if  (evenNumbers == 5) {
 
-                evennumbers++;
-                if (evennumbers == 5) {
-
-                    break;
-                }
+                break;
             }
 
-            System.out.println("Even number found: " + number);
         }
-        System.out.println("Total of even numbers found: " + evennumbers);
+
+        System.out.println("Total of even numbers found: " + evenNumbers);
     }
 
     public static boolean isEvenNumber(int number) {

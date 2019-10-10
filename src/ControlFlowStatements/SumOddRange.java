@@ -20,7 +20,7 @@ public class SumOddRange {
 
         if (end >= start && start > 0) {
 
-            for (int i = start; i <=     end; i++) {
+            for (int i = start; i <= end; i++) {
 
                 if (isOdd(i)) {
 

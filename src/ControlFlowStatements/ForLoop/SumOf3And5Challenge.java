@@ -1,4 +1,4 @@
-package ControlFlowStatements;
+package ControlFlowStatements.ForLoop;
 
 public class SumOf3And5Challenge {
     public static void main(String[] args) {

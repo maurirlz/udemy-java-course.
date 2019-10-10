@@ -1,4 +1,4 @@
-package ControlFlowStatements;
+package ControlFlowStatements.Switch;
 
 public class NumberInWord {
     public static void main(String[] args) {

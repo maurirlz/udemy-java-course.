@@ -1,4 +1,4 @@
-package ExpressionsStatementsCodeBlocksMethods;
+package ExpressionsStatementsCodeBlocksMethods.Methods;
 
 public class DecimalCompartor {
     public static void main(String[] args) {

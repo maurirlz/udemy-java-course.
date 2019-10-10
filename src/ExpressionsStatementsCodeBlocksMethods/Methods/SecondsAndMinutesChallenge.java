@@ -1,4 +1,4 @@
-package ExpressionsStatementsCodeBlocksMethods;
+package ExpressionsStatementsCodeBlocksMethods.Methods;
 
 public class SecondsAndMinutesChallenge {
     public static void main(String[] args) {

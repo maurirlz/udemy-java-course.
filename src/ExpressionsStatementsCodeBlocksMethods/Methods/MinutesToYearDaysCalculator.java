@@ -1,4 +1,4 @@
-package ExpressionsStatementsCodeBlocksMethods;
+package ExpressionsStatementsCodeBlocksMethods.Methods;
 
 class MinutesToYearsDaysCalculator {
     public static void printYearsAndDays(long minutes) {

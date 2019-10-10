@@ -1,4 +1,4 @@
-package ControlFlowStatements;
+package ControlFlowStatements.ForLoop;
 
 public class ForLoop {
     public static void main(String[] args) {

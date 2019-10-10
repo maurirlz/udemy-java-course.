@@ -1,4 +1,4 @@
-package ExpressionsStatementsCodeBlocksMethods;
+package ExpressionsStatementsCodeBlocksMethods.Methods;
 
 public class CheckNumberExcercise {
     // Write a method called checkNumber with an int parameter number

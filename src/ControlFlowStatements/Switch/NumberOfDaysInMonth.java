@@ -1,4 +1,4 @@
-package ControlFlowStatements;
+package ControlFlowStatements.Switch;
 
 public class NumberOfDaysInMonth {
     public static void main(String[] args) {

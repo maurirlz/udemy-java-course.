@@ -5,6 +5,7 @@ public class EqualSumChecker {
 
     }
     public static boolean hasEqualSum(int myFirstNumber, int mySecondNumber, int myThirdNumber){
+
         return myFirstNumber + mySecondNumber == myThirdNumber;
     }
 }

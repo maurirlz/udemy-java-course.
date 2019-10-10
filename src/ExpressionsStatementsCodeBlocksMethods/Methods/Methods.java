@@ -7,8 +7,8 @@ public class Methods {
         int score = 800;
         int levelCompleted = 5;
         int bonus = 100;
-
         int highScore = calculateScore(true, 800, 5, 100);
+
         System.out.println("Your final score was: " + highScore);
 
         score = 10000;
@@ -51,9 +51,10 @@ public class Methods {
 
     }
 
-    public static int calculateScore(boolean gameOver, int playerScore, int levelCompleted, int bonus){
+    public static int calculateScore(boolean gameOver, int playerScore, int levelCompleted, int bonus) {
 
         if (gameOver) {
+
             int finalScore = playerScore + (levelCompleted * bonus);
             finalScore += 2000;
             return finalScore;
@@ -61,28 +62,34 @@ public class Methods {
         return -1;
     }
 
-    public static void displayHighScorePosition(String playerName, int position){
+    public static void displayHighScorePosition(String playerName, int position) {
+
         System.out.println(playerName+ " Managed to get into position: " + position +
                 " on the high playerScore table");
-
     }
 
-    public static int calculateHighScorePosition(int playerScore){
+    public static int calculateHighScorePosition(int playerScore) {
+
         /*if (playerScore >= 1000){
             return 1;
-        }else if (playerScore >= 500){
+        } else if (playerScore >= 500)  {
             return 2;
-        }else if (playerScore >= 100){
+        } else if (playerScore >= 100) {
             return 3;
         }
 
         return 4;*/
+
         int position = 4; // assuming position 4 will be returned.
-        if (playerScore >= 1000){
+
+        if (playerScore >= 1000) {
+
             position = 1;
-        }else if (playerScore >= 500){
+        } else if (playerScore >= 500) {
+
             position = 2;
-        }else if (playerScore >= 100){
+        } else if (playerScore >= 100) {
+
             position = 3;
         }
         return position;

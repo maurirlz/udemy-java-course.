@@ -6,6 +6,7 @@ public class DecimalCompartor {
     }
 
     public static boolean areEqualByThreeDecimalPlaces(double firstNumber, double secondNumber) {
+
        return (long) (firstNumber * 1000d) == (long) (secondNumber * 1000d);
     }
 }

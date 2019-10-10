@@ -9,14 +9,16 @@ public class CalculateScore {
         calculateScore(50);
     }
 
-    public static int calculateScore(String playerName, int score){
+    public static int calculateScore(String playerName, int score) {
+
         System.out.println("Player " + playerName
                 + " score: " + score
                 + " points");
         return score * 1000;
     }
 
-    public static int calculateScore(int score){
+    public static int calculateScore(int score) {
+
         System.out.println("Unnamed player "
                 + " score: " + score
                 + " points");

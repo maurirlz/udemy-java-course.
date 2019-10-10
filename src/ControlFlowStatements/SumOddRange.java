@@ -3,7 +3,7 @@ package ControlFlowStatements;
 public class SumOddRange {
     public static void main(String[] args) {
 
-
+        System.out.println("Sum of odd numbers from 3 to 100: " + sumOdd(3,100));
     }
 
     public static boolean isOdd(int number) {

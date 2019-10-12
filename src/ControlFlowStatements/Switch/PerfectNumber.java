@@ -4,6 +4,7 @@ public class PerfectNumber {
     public static boolean isPerfectNumber(int number) {
         boolean result = false;
         int count = 0;
+
         if (number < 1) {
             return false;
         }

@@ -22,7 +22,7 @@ public class ReadingInput {
             System.out.println("Enter your name: ");
             String  name = sc.nextLine();
 
-            Integer age = 2019 - yearOfBirth;
+            int age = 2019 - yearOfBirth;
 
             if (age >= 0 && age <= 100) {
                 System.out.println("Your name is: " + name + ", and you are " + age + " years old.");
@@ -33,7 +33,7 @@ public class ReadingInput {
             System.out.println("Unable to parse year of birth.");
         }
 
-        // Always close the scanner after usage, to free the memory Java has reserved for it.
+        // Always close the scanner after usage, this does free the memory Java has reserved for the scanner class and static methods.
         sc.close();
 
     }

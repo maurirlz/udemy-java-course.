@@ -10,7 +10,8 @@ public class ReadingInput {
         System.out.println("Enter your year of birth.");
         boolean hasNextInt = sc.hasNextInt();
 
-        if (hasNextInt) {                   // if statement in charge of filtering through character or string inputs when the Scanner is waiting an Int,  using hasNextInt method from Scanner Class
+        if (hasNextInt) {                   // if statement in charge of filtering through character or string inputs when
+                                            // the Scanner is waiting an Int,  using hasNextInt method from Scanner Class
             int yearOfBirth = sc.nextInt(); // If the user inputs a negative number, there needs to be a range for
                                             // the Int scanner to handle, IE: 0-100 for age.
 
@@ -32,7 +33,7 @@ public class ReadingInput {
             System.out.println("Unable to parse year of birth.");
         }
 
-        // Always close the scanner after usage, to free the memory reserved in order to use.
+        // Always close the scanner after usage, to free the memory Java has reserved for it.
         sc.close();
 
     }

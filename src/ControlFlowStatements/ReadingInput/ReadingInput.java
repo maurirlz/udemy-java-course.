@@ -7,6 +7,7 @@ public class ReadingInput {
 
         Scanner sc = new Scanner(System.in);
 
+
         System.out.println("Enter your year of birth.");
         boolean hasNextInt = sc.hasNextInt();
 
@@ -27,9 +28,11 @@ public class ReadingInput {
             if (age >= 0 && age <= 100) {
                 System.out.println("Your name is: " + name + ", and you are " + age + " years old.");
             } else {
+
                 System.out.println("Invalid year of birth.");
             }
         } else {
+            
             System.out.println("Unable to parse year of birth.");
         }
 

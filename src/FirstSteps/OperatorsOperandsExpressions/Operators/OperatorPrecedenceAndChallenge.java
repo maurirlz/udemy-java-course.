@@ -7,7 +7,7 @@ public class OperatorPrecedenceAndChallenge {
 
         myFirstTotal = (myFirstDouble + mySecondDouble) * 100.00D;
         myFirstReminder = (myFirstTotal % 40.00D);
-        boolean myFirstBoolean = (myFirstReminder == 0) ? true : false;
+        boolean myFirstBoolean = myFirstReminder == 0;
         System.out.println("myFirstBoolean equals to: "+myFirstBoolean);
 
         if (!myFirstBoolean){

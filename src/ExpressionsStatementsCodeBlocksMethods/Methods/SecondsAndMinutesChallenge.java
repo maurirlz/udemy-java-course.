@@ -4,7 +4,7 @@ public class SecondsAndMinutesChallenge {
     public static void main(String[] args) {
 
         System.out.println(getDurationString(65L,45L));
-        System.out.println(getDurationString(3945L));
+        System.out.println(getDurationString());
     }
 
     private static String getDurationString(long minutes, long seconds){
@@ -16,14 +16,14 @@ public class SecondsAndMinutesChallenge {
         long remainingMinutes = minutes % 60L;
         return hours + "h " + remainingMinutes + "m " + seconds +"s";
     }
-    private static String getDurationString(long seconds){
+    private static String getDurationString(){
 
-        if (seconds < 0L){
+        if ((long) 3945 < 0L){
             return "Invalid value";
         }
 
-        long minutes = seconds / 60L;
-        long remainingSeconds = seconds % 60L;
+        long minutes = (long) 3945 / 60L;
+        long remainingSeconds = (long) 3945 % 60L;
         return getDurationString(minutes,remainingSeconds);
     }
 }

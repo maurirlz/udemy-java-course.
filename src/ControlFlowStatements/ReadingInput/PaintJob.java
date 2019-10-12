@@ -1,6 +1,7 @@
 package ControlFlowStatements.ReadingInput;
 
 public class PaintJob {
+
     public static void main(String[] args) {
 
         System.out.println(getBucketCount((7.25 * 4.3),2.35));

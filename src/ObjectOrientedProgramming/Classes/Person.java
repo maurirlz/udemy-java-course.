@@ -7,6 +7,7 @@ public class Person {
     private int age;
 
     public String getFullName() {
+
         if (this.firstName.isEmpty() && this.lastName.isEmpty()) {
 
             return " ";

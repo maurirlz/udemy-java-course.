@@ -49,9 +49,7 @@ public class NumberToWords {
                 reverseNum /= 10;
             }
 
-            for(int i = leadingZeros; i > 0; i--){
-                toWords.append("Zero ");
-            }
+            toWords.append("Zero ".repeat(Math.max(0, leadingZeros)));
             if (num == 0){
                 System.out.println("Zero");
             } else {

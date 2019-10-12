@@ -7,26 +7,26 @@ public class SimpleCalculator {
 
     public double getAdditionResult() {
 
-        return (getFirstNumber() + getSecondNumber());
+        return (this.firstNumber + this.secondNumber);
     }
 
     public double getSubtractionResult() {
 
-        return (getFirstNumber() - getSecondNumber());
+        return (this.firstNumber - this.secondNumber);
     }
 
     public double getMultiplicationResult() {
 
-        return (getFirstNumber() * getSecondNumber());
+        return (this.firstNumber * this.secondNumber);
     }
 
     public double getDivisionResult() {
 
-        if (getSecondNumber() == 0) {
+        if (this.secondNumber == 0) {
 
             return 0;
         }
-        return (getFirstNumber() / getSecondNumber());
+        return (this.firstNumber / this.secondNumber);
     }
 
     public double getFirstNumber() {

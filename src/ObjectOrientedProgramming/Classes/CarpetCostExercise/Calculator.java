@@ -8,7 +8,6 @@ Write the following methods (instance methods):
 * Method named getTotalCost without any parameters, it needs to return the calculated total cost to cover the floor with a carpet.
 
 */
-
 public class Calculator {
 
     private Floor floor;

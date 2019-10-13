@@ -1,4 +1,4 @@
-package ObjectOrientedProgramming.ClassesObjectsConstructors.CircleExercise;
+package ObjectOrientedProgramming.ClassesObjectsConstructors.Inheritance.CircleExercise;
 
 public class Cylinder extends Circle {
 

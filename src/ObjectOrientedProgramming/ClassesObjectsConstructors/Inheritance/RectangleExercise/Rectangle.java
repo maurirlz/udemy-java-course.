@@ -1,4 +1,4 @@
-package ObjectOrientedProgramming.ClassesObjectsConstructors.RectangleExercise;
+package ObjectOrientedProgramming.ClassesObjectsConstructors.Inheritance.RectangleExercise;
 
 public class Rectangle {
 

@@ -1,4 +1,4 @@
-package ObjectOrientedProgramming.ClassesObjectsConstructors;
+package ObjectOrientedProgramming.ClassesObjectsConstructors.SimpleExercises;
 
 public class Person {
 

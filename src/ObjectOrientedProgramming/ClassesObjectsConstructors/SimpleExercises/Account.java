@@ -1,4 +1,4 @@
-package ObjectOrientedProgramming.Classes;
+package ObjectOrientedProgramming.ClassesObjectsConstructors.SimpleExercises;
 
 public class Account {
 

@@ -1,4 +1,4 @@
-package ObjectOrientedProgramming.Classes.CarpetCostExercise;
+package ObjectOrientedProgramming.ClassesObjectsConstructors.CarpetCostExercise;
 /*2. Write a class with the name Carpet. The class needs one field (instance variable) with name cost of type double.
 
 The class needs to have one constructor with parameter cost of type double and it needs to initialize the field.

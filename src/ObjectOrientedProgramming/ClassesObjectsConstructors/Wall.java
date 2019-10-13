@@ -1,4 +1,4 @@
-package ObjectOrientedProgramming.Classes;
+package ObjectOrientedProgramming.ClassesObjectsConstructors;
 //Write a class with the name Wall. The class needs two fields (instance variables) with name width and height of type double.
 //
 //The class needs to have two constructors. The first constructor does not have any parameters (no-arg constructor).

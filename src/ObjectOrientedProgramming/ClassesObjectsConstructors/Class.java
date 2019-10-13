@@ -1,4 +1,4 @@
-package ObjectOrientedProgramming.Classes;
+package ObjectOrientedProgramming.ClassesObjectsConstructors;
 
 public class Class {
     // Objects have state and behaviours.

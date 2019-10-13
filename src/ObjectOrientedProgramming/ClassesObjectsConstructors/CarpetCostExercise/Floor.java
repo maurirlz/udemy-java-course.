@@ -1,4 +1,4 @@
-package ObjectOrientedProgramming.Classes.CarpetCostExercise;
+package ObjectOrientedProgramming.ClassesObjectsConstructors.CarpetCostExercise;
 
 /*The Carpet Company has asked you to write an application that calculates the price of carpeting for rectangular rooms.
 To calculate the price, you multiply the area of the floor (width times length) by the price per square meter of carpet.

@@ -12,17 +12,14 @@ public class PersonalComputer {
         this.motherboard = motherboard;
     }
 
-    public Case getTheCase() {
-        return theCase;
+    public void powerUp() {
+        theCase.pressPowerButoon();
+        drawLogo();
     }
 
-    public Monitor getMonitor() {
-        return monitor;
+    private void drawLogo() {
+        // fancy graphics
+        monitor.drawPixelAt(1200,50,"yellow");
     }
-
-    public Motherboard getMotherboard() {
-        return motherboard;
-    }
-
 
 }

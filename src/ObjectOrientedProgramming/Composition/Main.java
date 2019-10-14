@@ -14,9 +14,7 @@ public class Main {
 
         PersonalComputer pc = new PersonalComputer(theCase, monitor, mobo);
 
-        pc.getTheCase().pressPowerButoon();
-        pc.getMonitor().drawPixelAt(400,300,"red");
-        pc.getMotherboard().loadProgram("Windows 10");
+        pc.powerUp();
 
     }
 }

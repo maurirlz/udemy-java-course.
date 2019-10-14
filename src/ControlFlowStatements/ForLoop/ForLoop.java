@@ -8,6 +8,8 @@ public class ForLoop {
         System.out.println("10,000 at 4% interest = " + calculateInterest(10000.0d, 4.0));
         System.out.println("10,000 at 5% interest = " + calculateInterest(10000.0d, 5.0));*/
 
+
+
         for (int interestRate = 2; interestRate < 9; interestRate++) {
 
             System.out.println("10,000 at " + interestRate + "% = " + String.format("%.2f",calculateInterest(10000.0,interestRate)));

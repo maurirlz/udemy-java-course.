@@ -27,8 +27,9 @@ public class Room {
     }
 
     private void isRoomCold() {
-        if (airconditioner.isOn()) {
-            System.out.println("Room cooling, air conditioner is on.");
+        if ((airconditioner.isOn()) || (window.isOpen())) {
+
+            System.out.println("Room cooling");
         }
     }
 

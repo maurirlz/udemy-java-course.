@@ -1,7 +1,8 @@
 package ObjectOrientedProgramming.MasterChallenge;
 
 public class Burger {
-
+    
+    private final static double DEFAULT_BURGER_PRICE = 13.30d;
     private final static double LETTUCE_PRICING = 0.50d;
     private final static double TOMATO_PRICING = 0.60d;
     private final static double BACON_PRICING = 0.90d;
@@ -18,7 +19,6 @@ public class Burger {
 
 
     public Burger(String burguerName, double price) {
-
         this(burguerName,"NORMAL","BEEF",price);
     }
 
@@ -27,20 +27,21 @@ public class Burger {
         this.burguerName = burguerName.toUpperCase();
         this.rollType = rollType.toUpperCase();
 
-        if ((meat.compareToIgnoreCase("chicken") == 0) || (meat.compareToIgnoreCase("beef") == 0) || (meat.compareToIgnoreCase("veggie") == 0)) {
+        if ((meat.compareToIgnoreCase("CHICKEN") == 0) || (meat.compareToIgnoreCase("BEEF") == 0) || (meat.compareToIgnoreCase("VEGGIE") == 0)) {
+
             this.meat = meat.toUpperCase();
         } else {
 
             System.out.println("Selected meat is invalid or unavailable, setting your meat to default (beef)");
             this.meat = "BEEF";
         }
-
         if (price > 0) {
 
             this.price = price;
         } else {
+
             System.out.println("Price less than or equal to 0, setting default burguer price.");
-            this.price = 13.30d;
+            this.price = 10.00d;
         }
     }
 
@@ -82,7 +83,7 @@ public class Burger {
 
     public double getPrice() {
         if (price  <= 0) {
-            price = 1.00d;
+            price = DEFAULT_BURGER_PRICE;
         }
         return price;
     }
@@ -116,9 +117,9 @@ public class Burger {
     }
 
     public void setPrice(double price) {
-        if (price <= 0) {
-            System.out.println("Price is 0 or negative, setting price to $1.");
-            price = 1.00d;
+        if (price < DEFAULT_BURGER_PRICE) {
+            System.out.println("Price is less than the base burger price, setting price to default. (" + DEFAULT_BURGER_PRICE +")");
+            price = DEFAULT_BURGER_PRICE;
         }
         this.price = price;
     }

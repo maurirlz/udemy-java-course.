@@ -18,6 +18,7 @@ public class Burger {
 
 
     public Burger(String burguerName, double price) {
+
         this(burguerName,"NORMAL","BEEF",price);
     }
 
@@ -25,17 +26,21 @@ public class Burger {
 
         this.burguerName = burguerName.toUpperCase();
         this.rollType = rollType.toUpperCase();
+
         if ((meat.compareToIgnoreCase("chicken") == 0) || (meat.compareToIgnoreCase("beef") == 0) || (meat.compareToIgnoreCase("veggie") == 0)) {
             this.meat = meat.toUpperCase();
         } else {
+
             System.out.println("Selected meat is invalid or unavailable, setting your meat to default (beef)");
             this.meat = "BEEF";
         }
+
         if (price > 0) {
+
             this.price = price;
         } else {
             System.out.println("Price less than or equal to 0, setting default burguer price.");
-            this.price = 10.00d;
+            this.price = 13.30d;
         }
     }
 

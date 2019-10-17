@@ -19,7 +19,7 @@ public class Burger {
 
 
     public Burger(String burguerName, double price) {
-        this(burguerName,"NORMAL","BEEF",price);
+        this("NORMAL","NORMAL","BEEF",price);
     }
 
     public Burger(String burguerName, String rollType, String meat, double price) {

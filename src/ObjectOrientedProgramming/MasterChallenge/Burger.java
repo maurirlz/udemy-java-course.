@@ -3,15 +3,16 @@ package ObjectOrientedProgramming.MasterChallenge;
 public class Burger {
     
     private final static double DEFAULT_BURGER_PRICE = 13.30d;
-    private final static double LETTUCE_PRICING = 0.50d;
-    private final static double TOMATO_PRICING = 0.60d;
-    private final static double BACON_PRICING = 0.90d;
-    private final static double PICKLES_PRICING = 0.70d;
+    protected final static double LETTUCE_PRICING = 0.50d;
+    protected final static double TOMATO_PRICING = 0.60d;
+    protected final static double BACON_PRICING = 0.90d;
+    protected final static double PICKLES_PRICING = 0.70d;
 
-    private String burguerName = " ";
-    private String rollType = " ";
-    private String meat = " ";
+    private String burguerName;
+    private String rollType;
+    private String meat;
     private double price;
+
     private boolean lettuce;
     private boolean tomato;
     private boolean bacon;
@@ -25,6 +26,7 @@ public class Burger {
     public Burger(String burguerName, String rollType, String meat, double price) {
 
         this.burguerName = burguerName.toUpperCase();
+
         this.rollType = rollType.toUpperCase();
 
         if ((meat.compareToIgnoreCase("CHICKEN") == 0) || (meat.compareToIgnoreCase("BEEF") == 0) || (meat.compareToIgnoreCase("VEGGIE") == 0)) {

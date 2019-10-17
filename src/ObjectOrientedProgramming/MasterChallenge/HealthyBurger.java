@@ -5,15 +5,9 @@ public class HealthyBurger extends Burger {
     private static final double DEFAULT_HEALTHYBURGER_PRICE = 15.50d;
     private boolean carrot;
     private boolean spinach;
-
-    public HealthyBurger(String burguerName, double price, boolean carrot, boolean spinach) {
-        super(burguerName,"BROWN RYE","VEGGIE",price);
-        this.carrot = carrot;
-        this.spinach = spinach;
-    }
-
-    public HealthyBurger(String burguerName, String rollType, String meat, double price, boolean carrot, boolean spinach) {
-        super(burguerName, "BROWN RYE", "VEGGIE", price);
+    
+    public HealthyBurger(double price, boolean carrot, boolean spinach) {
+        super("HEALTHY", "BROWN RYE", "VEGGIE", price);
         this.carrot = carrot;
         this.spinach = spinach;
     }

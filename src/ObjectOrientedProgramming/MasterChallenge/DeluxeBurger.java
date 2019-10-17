@@ -42,17 +42,17 @@ public class DeluxeBurger extends Burger {
 
     @Override
     public String getBurguerName() {
-        return super.getBurguerName();
+        return super.getBurguerName().toUpperCase();
     }
 
     @Override
     public String getRollType() {
-        return super.getRollType();
+        return super.getRollType().toUpperCase();
     }
 
     @Override
     public String getMeat() {
-        return super.getMeat();
+        return super.getMeat().toUpperCase();
     }
 
     @Override

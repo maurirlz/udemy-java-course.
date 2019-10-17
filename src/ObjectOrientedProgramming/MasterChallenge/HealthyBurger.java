@@ -3,23 +3,44 @@ package ObjectOrientedProgramming.MasterChallenge;
 public class HealthyBurger extends Burger {
 
     private static final double DEFAULT_HEALTHYBURGER_PRICE = 15.50d;
+    private boolean carrot;
+    private boolean spinach;
 
-    public HealthyBurger(String burguerName, double price) {
-        super(burguerName, price);
+    public HealthyBurger(String burguerName, double price, boolean carrot, boolean spinach) {
+        super(burguerName,"BROWN RYE","VEGGIE",price);
+        this.carrot = carrot;
+        this.spinach = spinach;
     }
 
-    public HealthyBurger(String burguerName, String rollType, String meat, double price) {
-        super(burguerName, rollType, meat, price);
+    public HealthyBurger(String burguerName, String rollType, String meat, double price, boolean carrot, boolean spinach) {
+        super(burguerName, "BROWN RYE", "VEGGIE", price);
+        this.carrot = carrot;
+        this.spinach = spinach;
+    }
+
+    public static double getDefaultHealthyburgerPrice() {
+        return DEFAULT_HEALTHYBURGER_PRICE;
+    }
+
+    public boolean isCarrot() {
+        return carrot;
+    }
+
+    public void setCarrot(boolean carrot) {
+        this.carrot = carrot;
+    }
+
+    public boolean isSpinach() {
+        return spinach;
+    }
+
+    public void setSpinach(boolean spinach) {
+        this.spinach = spinach;
     }
 
     @Override
     public double showTotalPrice() {
         return super.showTotalPrice();
-    }
-
-    @Override
-    public void addAdditionPrice(double additionPrice) {
-        super.addAdditionPrice(additionPrice);
     }
 
     @Override

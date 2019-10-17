@@ -12,7 +12,6 @@ public class Burger {
     private String rollType;
     private String meat;
     private double price;
-
     private boolean lettuce;
     private boolean tomato;
     private boolean bacon;
@@ -50,11 +49,11 @@ public class Burger {
     public double showTotalPrice() {
         return this.price;
     }
-
-    public void addAdditionPrice(double additionPrice) {
+    @Deprecated
+    /*public void addAdditionPrice(double additionPrice) {
         this.price += additionPrice;
     }
-
+    */
     public static double getLettucePricing() {
         return LETTUCE_PRICING;
     }

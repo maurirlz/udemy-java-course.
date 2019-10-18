@@ -3,10 +3,10 @@ package ObjectOrientedProgramming.MasterChallenge;
 public class Burger {
     
     private final static double DEFAULT_BURGER_PRICE = 13.30d;
-    protected final static double LETTUCE_PRICING = 0.50d;
-    protected final static double TOMATO_PRICING = 0.60d;
-    protected final static double BACON_PRICING = 0.90d;
-    protected final static double PICKLES_PRICING = 0.70d;
+    private final static double LETTUCE_PRICING = 0.50d;
+    private final static double TOMATO_PRICING = 0.60d;
+    private final static double BACON_PRICING = 0.90d;
+    private final static double PICKLES_PRICING = 0.70d;
 
     private String burguerName;
     private String rollType;
@@ -19,6 +19,7 @@ public class Burger {
 
 
     public Burger(String burguerName, double price) {
+
         this("NORMAL","NORMAL","BEEF",price);
     }
 
@@ -35,6 +36,7 @@ public class Burger {
 
             System.out.println("Selected meat is invalid or unavailable, setting your meat to default (beef)");
             this.meat = "BEEF";
+
         }
         if (price > 0) {
 
@@ -46,9 +48,12 @@ public class Burger {
         }
     }
 
+
+
     public double showTotalPrice() {
         return this.price;
     }
+
     @Deprecated
     /*public void addAdditionPrice(double additionPrice) {
         this.price += additionPrice;

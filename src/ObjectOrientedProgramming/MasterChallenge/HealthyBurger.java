@@ -55,6 +55,7 @@ public class HealthyBurger extends Burger {
     @Override
     public double getPrice() {
         if (super.getPrice()  <= 0) {
+
             super.setPrice(DEFAULT_HEALTHYBURGER_PRICE);
         }
         return super.getPrice();

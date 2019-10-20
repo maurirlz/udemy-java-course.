@@ -18,7 +18,7 @@ public class MinimumElementChallenge {
 
 
     public static int findMin(int[] array) {
-        int min = 0;
+        int min = Integer.MAX_VALUE;
 
         for (int i = 0; i < array.length; i++) {
             if (i == 0) {

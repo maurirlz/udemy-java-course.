@@ -51,7 +51,6 @@ public class Main {
         }
     }
 
-
     public static String printInstructions() {
 
         final StringBuilder sb;

@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
 
         boolean quit = false;
-        int choice = 0;
+        int choice;
         System.out.println(printInstructions());
 
         while(!quit) {
@@ -50,7 +50,8 @@ public class Main {
 
     public static String printInstructions() {
 
-        final StringBuilder sb = new StringBuilder();
+        final StringBuilder sb;
+        sb = new StringBuilder();
         sb.append("\nPress: \n")
                 .append("\n\t 0 - To print choice options.")
                 .append("\n\t 1 - To print the list of grocery items.")
@@ -71,27 +72,25 @@ public class Main {
 
     public static void modifyItem() {
 
-        System.out.println("Enter item number: ");
-        int itemNumber = s.nextInt();
-        s.nextLine();
+        System.out.println("Current item nuame: ");
+        String itemNo = s.nextLine();
         System.out.println("Enter replacement item: ");
         String newItem = s.nextLine();
-        groceryList.modifyGroceryItem(itemNumber - 1, newItem);
+        groceryList.modifyGroceryItem(itemNo, newItem);
     }
 
     public static void removeItem() {
 
-        System.out.println("Enter item number: ");
-        int itemNumber = s.nextInt();
-        s.nextLine();
-        groceryList.removeGroceryItem(itemNumber - 1);
+        System.out.println("Enter item name: ");
+        String itemName = s.nextLine();
+        groceryList.removeGroceryItem(itemName);
     }
 
     public  static void searchForItem() {
 
         System.out.println("Item to search for: ");
         String searchItem = s.nextLine();
-        if (groceryList.findItem(searchItem) != null) {
+        if (groceryList.onFile(searchItem)) {
 
             System.out.println("Found " + searchItem + " in our grocery list");
         } else {

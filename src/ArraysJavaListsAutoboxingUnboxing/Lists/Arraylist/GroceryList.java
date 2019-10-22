@@ -6,14 +6,14 @@ public class GroceryList {
 
     private ArrayList<String> groceryList = new ArrayList<String>();
 
-    public void addGrocery(String item) {
+    public void addGroceryItem(String item) {
 
         groceryList.add(item);
     }
 
     public void printGroceryList() {
         System.out.println("You have " + groceryList.size()
-                + "items in your grocery list");
+                + " items in your grocery list");
 
         for (int i = 0; i < groceryList.size(); i++) {
 
@@ -32,5 +32,16 @@ public class GroceryList {
         String theItem = groceryList.get(position);
         groceryList.remove(position);
         System.out.println(theItem + " removed.");
+    }
+
+    public String findItem(String searchItem) {
+
+        /*boolean exists = groceryList.contains(searchItem);*/ // returns true if if the listcontains searchItem.
+        int position = groceryList.lastIndexOf(searchItem);
+        if (position >= 0) {
+
+            return groceryList.get(position);
+        }
+        return null;
     }
 }

@@ -1,5 +1,6 @@
 package ArraysJavaListsAutoboxingUnboxing.Lists.Arraylist;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -25,7 +26,7 @@ public class Main {
                 case 1:
                     groceryList.printGroceryList();
                     break;
-                case  2:
+                case 2:
                     addItem();
                     break;
                 case 3:
@@ -38,6 +39,9 @@ public class Main {
                     searchForItem();
                     break;
                 case 6:
+                    processArrayList();
+                    break;
+                case 7:
                     quit = true;
                     break;
                 default:
@@ -64,13 +68,13 @@ public class Main {
         return sb.toString();
     }
 
-    public static void addItem() {
+    private static void addItem() {
 
         System.out.print("Please enter the grocery item: ");
         groceryList.addGroceryItem(s.nextLine());
     }
 
-    public static void modifyItem() {
+    private static void modifyItem() {
 
         System.out.println("Current item nuame: ");
         String itemNo = s.nextLine();
@@ -79,14 +83,14 @@ public class Main {
         groceryList.modifyGroceryItem(itemNo, newItem);
     }
 
-    public static void removeItem() {
+    private static void removeItem() {
 
         System.out.println("Enter item name: ");
         String itemName = s.nextLine();
         groceryList.removeGroceryItem(itemName);
     }
 
-    public  static void searchForItem() {
+    private static void searchForItem() {
 
         System.out.println("Item to search for: ");
         String searchItem = s.nextLine();
@@ -97,5 +101,20 @@ public class Main {
 
             System.out.println(searchItem + " is not in the shopping list.");
         }
+    }
+
+    private static void processArrayList() {
+
+        // forms of copying contents of one arraylist to another one, calling the constructor is faster.
+
+        ArrayList<String> newArray = new ArrayList<>();
+        newArray.addAll(groceryList.getGroceryList());
+
+        ArrayList<String> nextArray = new ArrayList<>(groceryList.getGroceryList());
+
+        // form of making an ArrayList an array with all the contents saved.
+
+        String[] myArray = new String[groceryList.getGroceryList().size()];
+        myArray = groceryList.getGroceryList().toArray(myArray);
     }
 }

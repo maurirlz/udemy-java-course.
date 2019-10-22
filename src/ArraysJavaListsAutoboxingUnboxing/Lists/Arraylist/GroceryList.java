@@ -1,10 +1,10 @@
- package ArraysJavaListsAutoboxingUnboxing.Lists.Arraylist;
+package ArraysJavaListsAutoboxingUnboxing.Lists.Arraylist;
 
 import java.util.ArrayList;
 
 public class GroceryList {
 
-    private ArrayList<String> groceryList = new ArrayList<String>();
+    private ArrayList<String> groceryList = new ArrayList<>();
 
     public void addGroceryItem(String item) {
 
@@ -31,7 +31,7 @@ public class GroceryList {
 
     private void modifyGroceryItem(int position, String newItem) {
         groceryList.set(position, newItem);
-        System.out.println("Grocery item " + (position + 1)
+        System.out.println("Grocery item "
                 + " has been modified.");
     }
 
@@ -58,5 +58,9 @@ public class GroceryList {
 
         int position = findItem(searchItem);
         return position >= 0;
+    }
+
+    public ArrayList<String> getGroceryList() {
+        return groceryList;
     }
 }

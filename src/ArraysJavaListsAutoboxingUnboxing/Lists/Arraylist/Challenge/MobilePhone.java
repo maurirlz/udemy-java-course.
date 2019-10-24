@@ -43,7 +43,7 @@ public class MobilePhone {
 
         if (foundPosition < 0) {
 
-            System.out.println(oldContact.getName() + "Was not found.");
+            System.out.println(oldContact.getName() + " Was not found.");
             return false;
         } else if (findContact(newContact.getName()) != -1) {
 
@@ -52,7 +52,7 @@ public class MobilePhone {
         }
 
         this.contacts.set(foundPosition,newContact);
-        System.out.println(oldContact.getName() + ", was replaced with " + newContact.getName());
+        System.out.println(oldContact.getName() + " was replaced with: " + newContact.getName());
         return true;
     }
 
@@ -89,13 +89,6 @@ public class MobilePhone {
         return -1;
     }
 
-    public String queryContact(Contact contact) {
-        if (findContact(contact) >= 0) {
-            return contact.getName();
-        }
-        return null;
-    }
-
     public Contact queryContact(String name) {
         int position = findContact(name);
         if (position >= 0) {
@@ -111,6 +104,7 @@ public class MobilePhone {
             for (Contact contact : contacts) {
                 System.out.println(count + " - " + "Name: " + contact.getName()
                         + "\nPhone number: " + contact.getPhoneNumber() + "\n");
+                count++;
             }
         } else {
             System.out.println("Contact list is empty.");
@@ -126,4 +120,8 @@ public class MobilePhone {
                 Objects.equals(myNumber, that.myNumber);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(contacts, myNumber);
+    }
 }

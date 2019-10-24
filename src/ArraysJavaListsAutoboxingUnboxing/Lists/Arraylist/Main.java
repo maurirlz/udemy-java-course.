@@ -39,7 +39,7 @@ public class Main {
                     searchForItem();
                     break;
                 case 6:
-                    processArrayList();
+                 /*   processArrayList();*/
                     break;
                 case 7:
                     quit = true;
@@ -102,7 +102,7 @@ public class Main {
         }
     }
 
-    private static void processArrayList() {
+    /*private static void processArrayList() {
 
         // forms of copying contents of one arraylist to another one, calling the constructor is faster.
 
@@ -115,5 +115,5 @@ public class Main {
 
         String[] myArray = new String[groceryList.getGroceryList().size()];
         myArray = groceryList.getGroceryList().toArray(myArray);
-    }
+    }*/
 }

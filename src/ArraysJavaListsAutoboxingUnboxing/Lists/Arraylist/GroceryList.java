@@ -35,12 +35,6 @@ public class GroceryList {
                 + " has been modified.");
     }
 
-    private void removeGroceryItem(int position) {
-
-        groceryList.remove(position);
-        System.out.println("Item removed.");
-    }
-
     public void removeGroceryItem(String item) {
         int position = findItem(item);
 
@@ -49,18 +43,24 @@ public class GroceryList {
         }
     }
 
+    private void removeGroceryItem(int position) {
+
+        groceryList.remove(position);
+        System.out.println("Item removed.");
+    }
+
     private int findItem(String searchItem) {
 
         return groceryList.lastIndexOf(searchItem);
     }
 
-    public boolean onFile(String searchItem) {
+    boolean onFile(String searchItem) {
 
         int position = findItem(searchItem);
         return position >= 0;
     }
 
-    public ArrayList<String> getGroceryList() {
+    private ArrayList<String> getGroceryList() {
         return groceryList;
     }
 }

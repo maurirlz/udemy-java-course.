@@ -27,6 +27,10 @@ public class Contact {
         this(name,"11111111");
     }
 
+    public static Contact createContact(String name, String phoneNumber) {
+        return new Contact(name,phoneNumber);
+    }
+
     public String getName() {
         return name;
     }

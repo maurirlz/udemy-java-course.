@@ -1,6 +1,7 @@
 package ArraysJavaListsAutoboxingUnboxing.Lists.Arraylist.Challenge;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class MobilePhone {
 
@@ -17,83 +18,73 @@ public class MobilePhone {
     // e.g. no ints, no .get(i) etc
     // MobilePhone should do everything with Contact objects only.
 
-    private ArrayList<Contact> contacts = new ArrayList<>();
+    private ArrayList<Contact> contacts;
+    private String myNumber;
 
-    public void addContact(Contact newContact) {
-        if (!contacts.contains(newContact)) {
+    public MobilePhone(String myNumber) {
+        this.myNumber = myNumber;
+        this.contacts = new ArrayList<>();
+    }
 
-            contacts.add(newContact);
-        } else {
-            System.out.println("Contact already on the list.");
+    public boolean addNewContact(Contact contact) {
+
+        if (findContact(contact.getName()) >= 0) {
+
+            System.out.println("Contact already on file!");
+            return false;
         }
+        contacts.add(contact);
+        return true;
     }
 
-    public void printContacts() {
+    public boolean updateContact(Contact oldContact, Contact newContact) {
+        int foundPosition = findContact(oldContact);
 
-        if (contacts.size() <= 0){
-            System.out.println("No contacts available.");
+        if (foundPosition < 0) {
+            System.out.println(oldContact.getName() + "Was not found.");
+            return false;
         }
-
-        System.out.println("You have " + contacts.size()
-                + " contacts on your phone.");
-
-        for (Contact contact : contacts) {
-
-            System.out.println("Contact name: " + contact.getName()
-                              + "Contact phone number: " + contact.getPhoneNumber());
-        }
+        this.contacts.set(foundPosition,newContact);
+        System.out.println(oldContact.getName() + ", was replaced with " + newContact.getName());
+        return true;
     }
 
-    public void modifyContact(Contact currentContact, Contact newContact) {
-
-        int position = contacts.indexOf(currentContact);
-        if (position >= 0) {
-
-            modifyContact(position, newContact);
-        }
-    }
-
-    private void modifyContact(int position, Contact contact) {
-
-        contacts.set(position, contact);
-        System.out.println("Contact has been successfully modifed.");
-    }
-
-    public void removeContact(Contact currentContact) {
-
-        int position = findContact(currentContact);
-        if (position >= 0) {
-
-            removeContact(position);
-        }
-    }
-
-    private void removeContact(int position) {
-
-        contacts.remove(position);
-        System.out.println("Contact removed.");
-    }
-
-    public int findContact(Contact contact) {
-
-
-        if (onList(contact)) {
-
-            return contacts.indexOf(contact);
-        } else {
-
-            System.out.println("Contact not found, returning -1.");
-            return -1;
-        }
-    }
-
-    private boolean onList(Contact contact) {
+    public boolean removeContact(Contact contact) {
 
         int position = findContact(contact);
-        return position >= 0;
+
+        if (findContact(contact) < 0) {
+            System.out.println("Contact not found in file.");
+            return false;
+        }
+
+        this.contacts.remove(position);
+        return true;
     }
 
-    public ArrayList<Contact> getContacts() {
-        return contacts;
+    private int findContact(Contact contact) {
+
+        return this.contacts.indexOf(contact);
     }
+
+    private int findContact(String contactName) {
+        for (int i = 0; i < this.contacts.size(); i++) {
+
+            Contact contact = this.contacts.get(i);
+            if (contact.getName().equals(contactName)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MobilePhone)) return false;
+        MobilePhone that = (MobilePhone) o;
+        return Objects.equals(contacts, that.contacts) &&
+                Objects.equals(myNumber, that.myNumber);
+    }
+
 }

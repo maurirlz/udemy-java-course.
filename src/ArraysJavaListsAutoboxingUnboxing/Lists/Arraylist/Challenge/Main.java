@@ -27,6 +27,7 @@ public class Main {
 
         Menu:
         while (true) {
+
             System.out.println("\nEnter action: (6 to show available actions.)");
             int action = s.nextInt();
             s.nextLine();
@@ -63,14 +64,14 @@ public class Main {
     }
 
     private static void printActions() {
-        System.out.println("\nAvailable actions:\npress: ");
-        System.out.println("0 - Shutdown"
-                          + "1 - Print contacts"
-                          + "2 - Add contact"
-                          + "3 - Update existing contact"
-                          + "4 - Remove existing contact"
-                          + "5 - Query if contact exists"
-                          + "6 - Print list of available actions.");
+        System.out.println("\nAvailable actions:\nPress: ");
+        System.out.println("\n0 - Shutdown"
+                          + "\n1 - Print contacts"
+                          + "\n2 - Add contact"
+                          + "\n3 - Update existing contact"
+                          + "\n4 - Remove existing contact"
+                          + "\n5 - Query if contact exists"
+                          + "\n6 - Print list of available actions.");
         System.out.println("Choose your action now: ");
 
     }

@@ -70,10 +70,13 @@ public class MobilePhone {
         return true;
     }
 
+
     private int findContact(Contact contact) {
 
         return this.contacts.indexOf(contact);
     }
+
+    // Validacion para asegurarme de que un objeto se encuentra dentro del arraylist.
 
     private int findContact(String contactName) {
         for (int i = 0; i < this.contacts.size(); i++) {
@@ -103,10 +106,14 @@ public class MobilePhone {
 
     public void printContacts() {
         int count = 1;
-        System.out.println("Contact list: ");
-        for (Contact contact : contacts) {
-            System.out.println(count + "-" + "Name: " + contact.getName()
-                    + "Phone number: " + contact.getPhoneNumber());
+        if (contacts.size() > 0) {
+            System.out.println("Contact list: ");
+            for (Contact contact : contacts) {
+                System.out.println(count + " - " + "Name: " + contact.getName()
+                        + "\nPhone number: " + contact.getPhoneNumber() + "\n");
+            }
+        } else {
+            System.out.println("Contact list is empty.");
         }
     }
 

@@ -82,7 +82,7 @@ public class MobilePhone {
         for (int i = 0; i < this.contacts.size(); i++) {
 
             Contact contact = this.contacts.get(i);
-            if (contact.getName().equals(contactName)) {
+            if (contact.getName().compareToIgnoreCase(contactName) == 0) {
                 return i;
             }
         }

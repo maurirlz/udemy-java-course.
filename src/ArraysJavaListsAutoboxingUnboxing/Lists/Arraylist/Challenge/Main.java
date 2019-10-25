@@ -29,31 +29,35 @@ public class Main {
         while (true) {
 
             System.out.println("\nEnter action: (6 to show available actions.)");
-            int action = s.nextInt();
-            s.nextLine();
+            if (s.hasNextInt()) {
+                int action = s.nextInt();
+                s.nextLine();
 
-            switch (action) {
-                case 0:
-                    System.out.println("Shutting down....");
-                    break Menu;
-                case 1:
-                    printContacts();
-                    break;
-                case 2:
-                    addNewContact();
-                    break;
-                case 3:
-                    updateContact();
-                    break;
-                case 4:
-                    removeContact();
-                    break;
-                case 5:
-                    queryContact();
-                    break;
-                case 6:
-                    printActions();
-                    break;
+                switch (action) {
+                    case 0:
+                        System.out.println("Shutting down....");
+                        break Menu;
+                    case 1:
+                        printContacts();
+                        break;
+                    case 2:
+                        addNewContact();
+                        break;
+                    case 3:
+                        updateContact();
+                        break;
+                    case 4:
+                        removeContact();
+                        break;
+                    case 5:
+                        queryContact();
+                        break;
+                    case 6:
+                        printActions();
+                        break;
+                }
+            } else {
+                System.out.println("invalid input, please enter a numerical value.");
             }
         }
     }

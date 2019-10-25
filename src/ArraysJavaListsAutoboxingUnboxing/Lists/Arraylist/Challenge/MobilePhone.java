@@ -1,9 +1,8 @@
 package ArraysJavaListsAutoboxingUnboxing.Lists.Arraylist.Challenge;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
-public class MobilePhone {
+class MobilePhone {
 
     // Create a program that implements a simple mobile phone with the following capabilities.
     // Able to store, modify, remove and query contact names.
@@ -19,14 +18,12 @@ public class MobilePhone {
     // MobilePhone should do everything with Contact objects only.
 
     private ArrayList<Contact> contacts;
-    private String myNumber;
 
-    public MobilePhone(String myNumber) {
-        this.myNumber = myNumber;
+    MobilePhone(String myNumber) {
         this.contacts = new ArrayList<>();
     }
 
-    public boolean addNewContact(Contact contact) {
+    boolean addNewContact(Contact contact) {
 
         if (findContact(contact.getName()) >= 0) {
 
@@ -37,7 +34,7 @@ public class MobilePhone {
         return true;
     }
 
-    public boolean updateContact(Contact oldContact, Contact newContact) {
+    boolean updateContact(Contact oldContact, Contact newContact) {
 
         int foundPosition = findContact(oldContact);
 
@@ -56,7 +53,7 @@ public class MobilePhone {
         return true;
     }
 
-    public boolean removeContact(Contact contact) {
+    boolean removeContact(Contact contact) {
 
         int position = findContact(contact);
 
@@ -89,7 +86,7 @@ public class MobilePhone {
         return -1;
     }
 
-    public Contact queryContact(String name) {
+    Contact queryContact(String name) {
         int position = findContact(name);
         if (position >= 0) {
             return this.contacts.get(position);
@@ -97,7 +94,7 @@ public class MobilePhone {
         return null;
     }
 
-    public void printContacts() {
+    void printContacts() {
         int count = 1;
         if (contacts.size() > 0) {
             System.out.println("Contact list: ");

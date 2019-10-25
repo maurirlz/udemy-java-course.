@@ -1,6 +1,5 @@
 package ArraysJavaListsAutoboxingUnboxing.Lists.Arraylist;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -51,7 +50,7 @@ public class Main {
         }
     }
 
-    public static String printInstructions() {
+    private static String printInstructions() {
 
         final StringBuilder sb;
         sb = new StringBuilder();

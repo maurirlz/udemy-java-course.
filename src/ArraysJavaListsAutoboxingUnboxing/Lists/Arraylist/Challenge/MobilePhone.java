@@ -110,18 +110,4 @@ public class MobilePhone {
             System.out.println("Contact list is empty.");
         }
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof MobilePhone)) return false;
-        MobilePhone that = (MobilePhone) o;
-        return Objects.equals(contacts, that.contacts) &&
-                Objects.equals(myNumber, that.myNumber);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(contacts, myNumber);
-    }
 }

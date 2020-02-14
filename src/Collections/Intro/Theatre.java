@@ -92,6 +92,7 @@ public class Theatre {
         public boolean cancelReserve() {
 
             boolean reservedSeat = this.reserved;
+
             if (reservedSeat) {
 
                 this.reserved = false;

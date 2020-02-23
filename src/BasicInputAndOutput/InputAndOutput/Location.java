@@ -1,11 +1,13 @@
 package BasicInputAndOutput.InputAndOutput;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public final class Location {
+public final class Location implements Serializable {
 
+    private long serialVersionID = 1L;
     private final int locationID;
     private final String description;
     private final Map<String, Integer> exits;

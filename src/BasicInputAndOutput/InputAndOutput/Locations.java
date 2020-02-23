@@ -12,20 +12,22 @@ public class Locations implements Map<Integer, Location> {
 
     public static void main(String[] args) throws IOException {
 
-        try (FileWriter locFile = new FileWriter("locations.txt");
-            FileWriter dirFile = new FileWriter("directions.txt")) {
+        try (BufferedWriter locFile = new BufferedWriter(new FileWriter("locations.txt"));
+            BufferedWriter dirFile = new BufferedWriter(new FileWriter("directions.txt"))) {
 
             for (Location location : locations.values()) {
 
                 locFile.write(location.getLocationID() + " - " + location.getDescription() + "\n");
                 for (String direction : location.getExits().keySet()) {
 
-                    dirFile.write(location.getLocationID() + " - " + direction + " - " + location.getExits().get(direction) + "\n");
+                    if (!direction.equalsIgnoreCase("q")) {
 
+
+                        dirFile.write(location.getLocationID() + " - " + direction + " - " + location.getExits().get(direction) + "\n");
+                    }
                 }
             }
         }
-
     }
 
     static {
@@ -42,7 +44,7 @@ public class Locations implements Map<Integer, Location> {
                 String description = scanner.nextLine();
                 System.out.println("Imported loc: " + loc + ": " + description);
 
-                Map<String, Integer> tempExit = new HashMap<>();
+                Map<String, Integer> tempExit = new LinkedHashMap<>();
                 locations.put(loc, new Location(loc, description, tempExit));
             }
 

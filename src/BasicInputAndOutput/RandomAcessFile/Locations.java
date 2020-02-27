@@ -16,7 +16,7 @@ public class Locations implements Map<Integer, Location> {
     private static RandomAccessFile ra;
 
     public static void main(String[] args) throws IOException {
-        
+
         try (RandomAccessFile rao = new RandomAccessFile("locations_rand.dat", "rwd")) {
 
             rao.writeInt(locations.size()); // point 1
@@ -67,8 +67,6 @@ public class Locations implements Map<Integer, Location> {
     // 2. The next four bytes will contain the start of the locations section (bytes 4 through 7)
     // 3. The next section of the file will contain the index (the index is 1692 bytes long),  It will start at byte 8 and end at byte 1699
     // 4. The final section of the file will contain the location records (the data). It will start at byte 1700/
-
-
 
     static {
 

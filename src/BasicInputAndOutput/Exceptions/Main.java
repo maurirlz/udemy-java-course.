@@ -7,7 +7,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-
 //
 //        int x = 90;
 //        int y = 0;

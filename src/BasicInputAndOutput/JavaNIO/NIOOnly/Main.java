@@ -1,8 +1,6 @@
 package BasicInputAndOutput.JavaNIO.NIOOnly;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.channels.FileChannel;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;

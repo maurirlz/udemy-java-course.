@@ -74,6 +74,17 @@ public class BinaryNIOReadingAndWriting {
                 }
             }
 
+            File copy = new File("datacopy.dat");
+            RandomAccessFile copyFile = new RandomAccessFile(copy, "rw");
+            FileChannel copyChannel = copyFile.getChannel();
+            channel.position(0); // Important, since the first argument in transferFrom refers as a relative position instead of an absolute one, so it is necessary to set the channel of the datasource to 0.
+            long numTransferred = copyChannel.transferFrom(channel, 0, channel.size());
+
+            System.out.println("Num transferred = " + numTransferred);
+
+            channel.close();
+            ra.close();
+            copyChannel.close();
 
             /* Reading data sequentally.*/
 

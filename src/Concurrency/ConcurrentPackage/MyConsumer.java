@@ -6,6 +6,7 @@ public class MyConsumer implements Runnable {
 
     private ArrayBlockingQueue<String> buffer;
     private String color;
+    private String german = "german";
 
     public MyConsumer(ArrayBlockingQueue<String> buffer, String color) {
         this.buffer = buffer;

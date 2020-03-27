@@ -10,7 +10,7 @@ public class Main {
         new Thread(() -> carlos.sayHello(hugo)).start();
 
         new Thread(() -> hugo.sayHello(carlos)).start();
-        
+
     }
 
     static class PolitePerson {

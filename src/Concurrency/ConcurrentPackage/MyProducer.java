@@ -5,7 +5,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 public class MyProducer implements Runnable {
 
-    private ArrayBlockingQueue<String> buffer;
+    private final ArrayBlockingQueue<String> buffer;
     private String color;
 
 

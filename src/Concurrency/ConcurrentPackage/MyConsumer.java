@@ -4,9 +4,8 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 public class MyConsumer implements Runnable {
 
-    private ArrayBlockingQueue<String> buffer;
+    private final ArrayBlockingQueue<String> buffer;
     private String color;
-    private String german = "german";
 
     public MyConsumer(ArrayBlockingQueue<String> buffer, String color) {
         this.buffer = buffer;
@@ -19,7 +18,7 @@ public class MyConsumer implements Runnable {
         while (true) {
 
             synchronized (buffer) {
-                
+
                 try {
 
                     if (buffer.isEmpty()) {

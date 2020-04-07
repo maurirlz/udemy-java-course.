@@ -4,10 +4,7 @@ import LambdaExpressions.Introduction.Employee;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.function.Function;
-import java.util.function.IntPredicate;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 public class Main {
 
@@ -114,11 +111,30 @@ public class Main {
         /* Function chaining demostration: */
 
         Function<Employee, String> upperCase = employee -> employee.getName().toUpperCase();
-        Function<String, String> firstName = name -> name.substring(0, name.indexOf(" "));
-        Function chainedFunction = upperCase.andThen(firstName); // compose function because calls the andThen method
+        Function<String, String> firstName = name -> name.substring(0, name.indexOf(""));
+        Function<Employee, String> chainedFunction = upperCase.andThen(firstName); // it is a compose function because calls the andThen method.
 
         System.out.println(chainedFunction.apply(employees.get(0))); // outputs MAURICIO
 
+        BiFunction<String, Employee, String> concatAge = (String name, Employee employee) -> {
+
+            return name.concat(" " + employee.getAge());
+        };
+
+        String upperName = upperCase.apply(employees.get(0));
+
+        System.out.println(concatAge.apply(upperName, employees.get(0)));
+
+        /* Unary operators, return the same type passed as an argument, for example it recieves a string and returns a string etc.. */
+
+        IntUnaryOperator incBy5 = i -> i + 5;
+        System.out.println(incBy5.applyAsInt(10));
+
+        /*  Chaining of consumers */
+
+        Consumer<String> c1 = s -> s.toUpperCase();
+        Consumer<String> c2 = s -> System.out.println(s);
+        c1.andThen(c2).accept("Hello world");
     }
 
     private static String getAName(Function<Employee, String> getName, Employee employee) {

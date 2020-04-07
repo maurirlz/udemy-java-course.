@@ -3,7 +3,10 @@ package LambdaExpressions.JavaUtilFunction;
 import LambdaExpressions.Introduction.Employee;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.function.IntPredicate;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class Main {
 
@@ -24,9 +27,54 @@ public class Main {
         employees.add(gaona);
         employees.add(luro);
 
+        /* Basic usage of predicates: */
+
         printEmployeessByAge(employees, "Employees with age < 25", employee -> employee.getAge() < 25);
         System.out.println("--------------------------------------------------------------------------------------------");
         printEmployeessByAge(employees, "Employees with age > 40", employee -> employee.getAge() > 40);
+        System.out.println("--------------------------------------------------------------------------------------------");
+
+        /* Passing an anonymous class instead of a lambda as a predicate. */
+
+        printEmployeessByAge(employees, "employees with age < 23", new Predicate<Employee>() {
+            @Override
+            public boolean test(Employee employee) {
+                return employee.getAge() < 25;
+            }
+        });
+
+        /* Using an Integer predicate with and without a expression as a passed parameter: */
+
+        IntPredicate intp = i -> i > 25;
+        System.out.println(intp.test(10)); // outputs false cause 10 < 25
+
+        int testNumber = 20;
+        System.out.println(intp.test(testNumber + 5)); // prints true cause 20 + 5 >= 25
+
+        /* Chaining of Predicates: */
+
+        IntPredicate greaterThan15 = i -> i > 15;
+        IntPredicate lessThan100 = i -> i < 100;
+        System.out.println(greaterThan15.and(lessThan100).test(50)); // outputs true cause 50 > 15 && 50 < 100
+
+        /* Supplier interface examples: */
+
+        Random random = new Random();
+
+        /*
+        for (int i = 0; i < 10; i++) {
+
+            System.out.println(random.nextInt(1000));
+        }*/
+
+        Supplier<Integer> randomSupplier = () -> random.nextInt(1000);
+
+        for (int i = 0; i < 10; i++) {
+
+            System.out.println(randomSupplier.get());
+        }
+
+
     }
 
     private static void printEmployeessByAge(List<Employee> employees,

@@ -110,6 +110,15 @@ public class Main {
                 System.out.println(getAName(getLastName, employee));
             }
         }
+
+        /* Function chaining demostration: */
+
+        Function<Employee, String> upperCase = employee -> employee.getName().toUpperCase();
+        Function<String, String> firstName = name -> name.substring(0, name.indexOf(" "));
+        Function chainedFunction = upperCase.andThen(firstName); // compose function because calls the andThen method
+
+        System.out.println(chainedFunction.apply(employees.get(0))); // outputs MAURICIO
+
     }
 
     private static String getAName(Function<Employee, String> getName, Employee employee) {

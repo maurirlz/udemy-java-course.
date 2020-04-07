@@ -4,6 +4,7 @@ import LambdaExpressions.Introduction.Employee;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Function;
 import java.util.function.IntPredicate;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
@@ -61,11 +62,10 @@ public class Main {
 
         Random random = new Random();
 
-        /*
-        for (int i = 0; i < 10; i++) {
-
-            System.out.println(random.nextInt(1000));
-        }*/
+//        for (int i = 0; i < 10; i++) {
+//
+//            System.out.println(random.nextInt(1000));
+//        }
 
         Supplier<Integer> randomSupplier = () -> random.nextInt(1000);
 
@@ -74,7 +74,47 @@ public class Main {
             System.out.println(randomSupplier.get());
         }
 
+//        employees.forEach(employee -> {
+//            String lastName = employee.getName().substring(employee.getName().indexOf(" ") + 1);
+//            System.out.println("Last name is: " + lastName);
+//        });
 
+        /* Function interface usage:
+        * in the diamond operator, first  type (Employee) is the argument's type.
+        * the second type is the type of what the function
+        * will return, in this case, a String. */
+
+        Function<Employee, String> getLastName = (Employee employee) -> {
+
+            String employeeName = employee.getName();
+            return employeeName.substring(employeeName.indexOf(" ") + 1);
+        };
+
+//         String lastName = getLastName.apply(employees.get(1));
+//        System.out.println(lastNamesi
+
+        Function<Employee, String> getFirstName = (Employee employee) -> {
+
+            return employee.getName().substring(0, employee.getName().indexOf(" "));
+        };
+
+        Random random1 = new Random();
+
+        for (Employee employee : employees) {
+
+            if (random1.nextBoolean()) {
+
+                System.out.println(getAName(getFirstName, employee));
+            } else {
+
+                System.out.println(getAName(getLastName, employee));
+            }
+        }
+    }
+
+    private static String getAName(Function<Employee, String> getName, Employee employee) {
+
+        return getName.apply(employee);
     }
 
     private static void printEmployeessByAge(List<Employee> employees,

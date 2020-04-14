@@ -101,10 +101,20 @@ public class Main {
                 .flatMap(department -> department.getEmployees().stream())
                 .collect(Collectors.groupingBy(Employee::getAge)); // or it can be Collectors.groupingBy(employee -> employee.getAge());
 
-        for (Integer key : groupedByAge.keySet()) {
+        /*for (Integer key : groupedByAge.keySet()) {
 
             System.out.println("Employees with age of " + key + ":");
             groupedByAge.get(key).forEach(employee -> System.out.println(employee.getName()));
-        }
+        }*/
+
+
+        /* Youngest employee with streams and .reduce() */
+
+        departments.stream()
+                .flatMap(department -> department.getEmployees().stream())
+                .reduce((e1, e2) -> e1.getAge() < e2.getAge() ? e1 : e2)
+                .ifPresent(System.out::println); // if the value is present, print it, if not, ifPresents does nothing
+
+
     }
 }

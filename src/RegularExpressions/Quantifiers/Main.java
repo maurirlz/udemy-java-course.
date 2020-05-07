@@ -1,8 +1,5 @@
 package RegularExpressions.Quantifiers;
 
-import Concurrency.SynchronizedMethods.Message;
-
-import java.text.MessageFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -47,7 +44,7 @@ public class Main {
         String h2GroupPattern = "(<h2>.*?</h2>)"; // by default * is a greedy quantifier (will grab as much text that causes a match as it can)
                                                 // if we use the ? quantifier next, it will make the star quantifier a lazy one
                                                 // (will grab as less text that causes a match as it can)
-        
+
         Pattern groupPattern = Pattern.compile(h2GroupPattern);
         Matcher groupMatcher = groupPattern.matcher(htmlText);
 

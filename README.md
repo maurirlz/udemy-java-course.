@@ -1,4 +1,4 @@
-# Java course I've been doing to re-learn basic and learn intermidiate to advanced concepts in the Java language.
+# Java course I've been doing to re-learn basic and learn intermidiate to advanced concepts on the Java language.
 
 <ol>
   <b>Topics:</b>
@@ -40,7 +40,11 @@
                     <li>TreeMap</li>
                 </ul>
         </ul>
-    <li>Input and Output in java, with java.util.io and java.util.nio</li>
+    <li>Input and Output in java</li>
+        <ul>
+            <li>java.util.io</li>
+            <li>java.util.nio</li>
+        </ul>
     <li>Concurrency in Java, concurrent programming.</li>
     <li>Lambda expressions and Streams, Functional programming in Java</li>
     <li>Regular expressions</li>

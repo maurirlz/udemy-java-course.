@@ -1,0 +1,1 @@
+select COUNT(DISTINCT artist) from artist_list WHERE artist = "Aerosmith";

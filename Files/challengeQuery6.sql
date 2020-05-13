@@ -1,0 +1,1 @@
+SELECT DISTINCT title FROM artist_list where artist = "Aerosmith";

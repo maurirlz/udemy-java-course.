@@ -1,0 +1,1 @@
+UPDATE artists SET name = "One Kitten" WHERE name = "Mehitabel";

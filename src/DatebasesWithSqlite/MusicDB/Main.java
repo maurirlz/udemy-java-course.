@@ -26,6 +26,10 @@ public class Main {
                 + "\n\tArtist name: " + artist.getName());
             });
         }
+
+        List<String> albumForArtist = datasource.queryAlbumFromArtist("iron maiden", DataSource.ORDER_BY_ASC);
+
+        albumForArtist.forEach(System.out::println);
     }
 }
 

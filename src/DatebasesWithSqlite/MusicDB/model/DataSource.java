@@ -45,11 +45,6 @@ public class DataSource {
                     " = " + TABLE_ARTISTS + "." + COLUMN_ARTIST_ID +
                     " WHERE " + TABLE_ARTISTS + "." + COLUMN_ARTIST_NAME + " = '";
 
-    // SELECT albums.name FROM albums
-    //INNER JOIN artists ON albums.artist = artists._id
-    //WHERE artists.name = 'pink floyd' COLLATE NOCASE
-    //ORDER BY albums.name;
-
     public static final String QUERY_ALBUMS_BY_ARTIST_SORT =
             " COLLATE NOCASE" + " ORDER BY " + TABLE_ALBUMS + "." + COLUMN_ALBUM_NAME;
 
@@ -124,9 +119,9 @@ public class DataSource {
     public List<String> queryAlbumFromArtist(String artistName, int sortOrder) {
 
         // SELECT albums.name FROM albums
-        //INNER JOIN artists ON albums.artist = artists._id
-        //WHERE artists.name = 'pink floyd' COLLATE NOCASE
-        //ORDER BY albums.name;
+        // INNER JOIN artists ON albums.artist = artists._id
+        // WHERE artists.name = 'pink floyd' COLLATE NOCASE
+        // ORDER BY albums.name;
 
         StringBuilder sb = new StringBuilder(QUERY_ALBUMS_BY_ARTIST_START);
         sb.append(artistName).append("'");
@@ -142,11 +137,14 @@ public class DataSource {
             }
         }
 
+        if (sortOrder == ORDER_BY_NONE) {
+            sb.append(" COLLATE NOCASE");
+        }
+
         System.out.println("SQL STATEMENT = " + sb.toString());
 
         try (Statement statement = _connect.createStatement();
         ResultSet results = statement.executeQuery(sb.toString())) {
-
 
             List<String> albums = new ArrayList<>();
 

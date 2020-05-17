@@ -70,12 +70,17 @@ public class DataSource {
             COLUMN_ALBUM_ARTIST + ", " + COLUMN_SONG_ALBUM +
             ", " + COLUMN_SONG_TRACK;
 
+    public static final String QUERY_VIEW_SONG_PREP = "SELECT " + COLUMN_ALBUM_ARTIST + ", " + COLUMN_SONG_ALBUM + ", " + COLUMN_SONG_TRACK +
+            " FROM " + TABLE_ARTIST_SONG_VIEW + " WHERE " + COLUMN_SONG_TITLE + " = ?";
+
     private Connection _connect;
+    PreparedStatement querySongInfoView;
 
     public boolean open() {
         try {
 
             _connect = DriverManager.getConnection(JDBCURL);
+            querySongInfoView = _connect.prepareStatement(QUERY_VIEW_SONG_PREP);
             return true;
         } catch (SQLException e) {
 
@@ -88,6 +93,7 @@ public class DataSource {
         try {
             if (_connect != null) {
 
+                querySongInfoView.close();
                 _connect.close();
                 return true;
             }
@@ -244,27 +250,22 @@ public class DataSource {
         }
     }
 
-    public List<SongArtist> querySongInfoView(String title, int sortOrder) {
+    public List<SongArtist> querySongInfoView(String title) {
 
-        StringBuilder sb = new StringBuilder(QUERY_VIEW_SONG_INFO);
-        sb.append(title);
+        try {
 
-        determineSortOrder(sb, QUERY_VIEW_SONG_ORDER, sortOrder);
-
-        System.out.println("SQL STATEMENT: \n\t" + sb.toString());
-
-        try (Statement statement = _connect.createStatement();
-             ResultSet results = statement.executeQuery(sb.toString())) {
-
+            querySongInfoView.setString(1, title);
+            ResultSet results = querySongInfoView.executeQuery();
             List<SongArtist> songArtists = new ArrayList<>();
 
             return fillListWithSongArtist(results, songArtists);
-        } catch (SQLException e) {
 
+        } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
     }
+
 
     List<SongArtist> fillListWithSongArtist(ResultSet set, List<SongArtist> list) {
 

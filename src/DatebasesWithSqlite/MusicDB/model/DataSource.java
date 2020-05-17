@@ -46,7 +46,18 @@ public class DataSource {
                     " WHERE " + TABLE_ARTISTS + "." + COLUMN_ARTIST_NAME + " = '";
 
     public static final String QUERY_ALBUMS_BY_ARTIST_SORT =
-            " COLLATE NOCASE" + " ORDER BY " + TABLE_ALBUMS + "." + COLUMN_ALBUM_NAME;
+            "' COLLATE NOCASE" + " ORDER BY " + TABLE_ALBUMS + "." + COLUMN_ALBUM_NAME;
+
+    public static final String QUERY_ARTIST_FOR_SONG_START = "SELECT " + TABLE_ARTISTS + "." + COLUMN_ARTIST_NAME + ", " +
+            TABLE_ALBUMS + "." + COLUMN_ALBUM_NAME + ", " +
+            TABLE_SONGS + "." + COLUMN_SONG_TRACK + " FROM " + TABLE_SONGS +
+            " INNER JOIN " + TABLE_ALBUMS + " ON " + TABLE_SONGS + "." + COLUMN_SONG_ALBUM + " = " + TABLE_ALBUMS + "." + COLUMN_ALBUM_ID +
+            " INNER JOIN " + TABLE_ARTISTS + " ON " +  TABLE_ALBUMS + "." + COLUMN_ALBUM_ARTIST + " = " + TABLE_ARTISTS + "." + COLUMN_ARTIST_ID +
+            " WHERE " + TABLE_SONGS + "." + COLUMN_SONG_TITLE + " = '";
+
+    public static final String QUERY_ARTIST_FOR_SONG_SORT =
+            "' COLLATE NOCASE " + "ORDER BY " + TABLE_ARTISTS + "." + COLUMN_ARTIST_NAME + ", " +
+                    TABLE_ALBUMS + "." + COLUMN_ALBUM_NAME;
 
     private Connection _connect;
 
@@ -55,7 +66,6 @@ public class DataSource {
 
             _connect = DriverManager.getConnection(JDBCURL);
             return true;
-
         } catch (SQLException e) {
 
             e.printStackTrace();
@@ -116,30 +126,12 @@ public class DataSource {
         }
     }
 
-    public List<String> queryAlbumFromArtist(String artistName, int sortOrder) {
-
-        // SELECT albums.name FROM albums
-        // INNER JOIN artists ON albums.artist = artists._id
-        // WHERE artists.name = 'pink floyd' COLLATE NOCASE
-        // ORDER BY albums.name;
+    public List<String> queryAlbumFromArtist(String artistName, int sortOrder) throws NullPointerException {
 
         StringBuilder sb = new StringBuilder(QUERY_ALBUMS_BY_ARTIST_START);
-        sb.append(artistName).append("'");
+        sb.append(artistName);
 
-        if (sortOrder != ORDER_BY_NONE) {
-            sb.append(QUERY_ALBUMS_BY_ARTIST_SORT);
-
-            if (sortOrder == ORDER_BY_DESC) {
-
-                sb.append(" DESC");
-            } else {
-                sb.append(" ASC");
-            }
-        }
-
-        if (sortOrder == ORDER_BY_NONE) {
-            sb.append(" COLLATE NOCASE");
-        }
+        determineSortOrder(sb, QUERY_ALBUMS_BY_ARTIST_SORT, sortOrder);
 
         System.out.println("SQL STATEMENT = " + sb.toString());
 
@@ -157,6 +149,79 @@ public class DataSource {
 
             System.out.println("Query failed: " + e.getMessage());
             return null;
+        }
+    }
+
+    public List<SongArtist> queryArtistForSong(String songName, int sortOrder)  throws  NullPointerException {
+
+        StringBuilder sb = new StringBuilder(QUERY_ARTIST_FOR_SONG_START);
+        sb.append(songName);
+
+        determineSortOrder(sb, QUERY_ARTIST_FOR_SONG_SORT, sortOrder);
+
+        try (Statement statement = _connect.createStatement();
+        ResultSet results = statement.executeQuery(sb.toString())) {
+
+            List<SongArtist> songArtists = new ArrayList<>();
+
+            while (results.next()) {
+
+                SongArtist songArtist = new SongArtist();
+                songArtist.setArtistName(results.getString(1));
+                songArtist.setAlbumName(results.getString(2));
+                songArtist.setTrack(results.getInt(3));
+
+                songArtists.add(songArtist);
+            }
+
+            return songArtists;
+        } catch (SQLException e) {
+
+
+            System.out.println("Query failed " + e.getMessage());
+            return null;
+        }
+    }
+
+    private void determineSortOrder(StringBuilder sb, String sortString, int sortOrder) {
+
+        if (sortOrder != ORDER_BY_NONE) {
+
+            sb.append(sortString);
+
+            if (sortOrder == ORDER_BY_DESC) {
+
+                sb.append(" DESC");
+            } else {
+
+                sb.append(" ASC");
+            }
+        }
+
+        if (sortOrder == ORDER_BY_NONE) {
+
+            sb.append("' COLLATE NOCASE");
+        }
+    }
+
+    public void querySongsMetadata() {
+
+        String sql = "SELECT * FROM " + TABLE_SONGS;
+
+        try (Statement statement = _connect.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql)) {
+
+            ResultSetMetaData meta = resultSet.getMetaData();
+
+            int numColumns = meta.getColumnCount();
+
+            for (int i = 1; i < numColumns; i++) {
+
+                System.out.format("Column %d in the songs table is named %s\n", i, meta.getColumnName(i));
+            }
+        } catch (SQLException e) {
+
+            e.printStackTrace();
         }
     }
 }

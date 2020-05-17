@@ -59,6 +59,17 @@ public class DataSource {
             "' COLLATE NOCASE " + "ORDER BY " + TABLE_ARTISTS + "." + COLUMN_ARTIST_NAME + ", " +
                     TABLE_ALBUMS + "." + COLUMN_ALBUM_NAME;
 
+    public static final String TABLE_ARTIST_SONG_VIEW = "artist_list";
+
+    // SELECT artist, album, track FROM artist_list WHERE title = 'Go Your Own Way' COLLATE NOCASE
+
+    public static final String QUERY_VIEW_SONG_INFO = "SELECT " + COLUMN_ALBUM_ARTIST + ", " + COLUMN_SONG_ALBUM + ", " + COLUMN_SONG_TRACK +
+            " FROM " + TABLE_ARTIST_SONG_VIEW + " WHERE " + COLUMN_SONG_TITLE + " = '";
+
+    public static final String QUERY_VIEW_SONG_ORDER = "' COLLATE NOCASE " + "ORDER BY " +
+            COLUMN_ALBUM_ARTIST + ", " + COLUMN_SONG_ALBUM +
+            ", " + COLUMN_SONG_TRACK;
+
     private Connection _connect;
 
     public boolean open() {
@@ -106,7 +117,7 @@ public class DataSource {
         }
 
         try (Statement statement = _connect.createStatement();
-            ResultSet results = statement.executeQuery(sb.toString())) {
+             ResultSet results = statement.executeQuery(sb.toString())) {
 
             List<Artist> artists = new ArrayList<>();
 
@@ -136,7 +147,7 @@ public class DataSource {
         System.out.println("SQL STATEMENT = " + sb.toString());
 
         try (Statement statement = _connect.createStatement();
-        ResultSet results = statement.executeQuery(sb.toString())) {
+             ResultSet results = statement.executeQuery(sb.toString())) {
 
             List<String> albums = new ArrayList<>();
 
@@ -160,21 +171,11 @@ public class DataSource {
         determineSortOrder(sb, QUERY_ARTIST_FOR_SONG_SORT, sortOrder);
 
         try (Statement statement = _connect.createStatement();
-        ResultSet results = statement.executeQuery(sb.toString())) {
+             ResultSet results = statement.executeQuery(sb.toString())) {
 
             List<SongArtist> songArtists = new ArrayList<>();
 
-            while (results.next()) {
-
-                SongArtist songArtist = new SongArtist();
-                songArtist.setArtistName(results.getString(1));
-                songArtist.setAlbumName(results.getString(2));
-                songArtist.setTrack(results.getInt(3));
-
-                songArtists.add(songArtist);
-            }
-
-            return songArtists;
+            return fillListWithSongArtist(results, songArtists);
         } catch (SQLException e) {
 
 
@@ -209,7 +210,7 @@ public class DataSource {
         String sql = "SELECT * FROM " + TABLE_SONGS;
 
         try (Statement statement = _connect.createStatement();
-        ResultSet resultSet = statement.executeQuery(sql)) {
+             ResultSet resultSet = statement.executeQuery(sql)) {
 
             ResultSetMetaData meta = resultSet.getMetaData();
 
@@ -230,7 +231,7 @@ public class DataSource {
         String sql = "SELECT COUNT(*) AS count FROM " + table;
 
         try (Statement statement = _connect.createStatement();
-        ResultSet results = statement.executeQuery(sql)) {
+             ResultSet results = statement.executeQuery(sql)) {
 
             int count = results.getInt("count");
             System.out.format("Count = %d\n", count);
@@ -241,5 +242,48 @@ public class DataSource {
             System.out.println("Something bad happened: " + e.getMessage());
             return -1;
         }
+    }
+
+    public List<SongArtist> querySongInfoView(String title, int sortOrder) {
+
+        StringBuilder sb = new StringBuilder(QUERY_VIEW_SONG_INFO);
+        sb.append(title);
+
+        determineSortOrder(sb, QUERY_VIEW_SONG_ORDER, sortOrder);
+
+        System.out.println("SQL STATEMENT: \n\t" + sb.toString());
+
+        try (Statement statement = _connect.createStatement();
+             ResultSet results = statement.executeQuery(sb.toString())) {
+
+            List<SongArtist> songArtists = new ArrayList<>();
+
+            return fillListWithSongArtist(results, songArtists);
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    List<SongArtist> fillListWithSongArtist(ResultSet set, List<SongArtist> list) {
+
+        try {
+
+            while (set.next()) {
+                SongArtist artist = new SongArtist();
+                artist.setArtistName(set.getString(1));
+                artist.setAlbumName(set.getString(2));
+                artist.setTrack(set.getInt(3));
+
+                list.add(artist);
+            }
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+            return null;
+        }
+
+        return list;
     }
 }

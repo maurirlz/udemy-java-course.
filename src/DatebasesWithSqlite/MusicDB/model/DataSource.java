@@ -224,4 +224,22 @@ public class DataSource {
             e.printStackTrace();
         }
     }
+
+    public int getCount(String table) {
+
+        String sql = "SELECT COUNT(*) AS count FROM " + table;
+
+        try (Statement statement = _connect.createStatement();
+        ResultSet results = statement.executeQuery(sql)) {
+
+            int count = results.getInt("count");
+            System.out.format("Count = %d\n", count);
+
+            return count;
+        } catch (SQLException e) {
+
+            System.out.println("Something bad happened: " + e.getMessage());
+            return -1;
+        }
+    }
 }

@@ -47,6 +47,7 @@ public class Main {
         });
 
         datasource.querySongsMetadata();
+        System.out.println("Number of songs in database: " + datasource.getCount(DataSource.TABLE_SONGS));;
         datasource.close();
     }
 }

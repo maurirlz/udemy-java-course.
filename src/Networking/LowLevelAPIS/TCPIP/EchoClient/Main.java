@@ -1,4 +1,4 @@
-package Networking.TCPIP.EchoClient;
+package Networking.LowLevelAPIS.TCPIP.EchoClient;
 
 import java.io.*;
 import java.net.Socket;

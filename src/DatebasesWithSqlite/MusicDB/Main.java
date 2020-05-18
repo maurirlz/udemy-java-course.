@@ -33,7 +33,7 @@ public class Main {
 //
 //        albumForArtist.forEach(System.out::println);
 
-        List<SongArtist> songArtists = datasource.querySongInfoView("heartless", DataSource.ORDER_BY_ASC);
+        List<SongArtist> songArtists = datasource.querySongInfoView("heartless");
 
         if (songArtists == null) {
 

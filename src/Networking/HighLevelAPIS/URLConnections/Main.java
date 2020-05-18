@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class Main {
 
@@ -38,13 +41,21 @@ public class Main {
             InputStream in = urlConnection.getInputStream();
             BufferedReader inputStream = new BufferedReader(new InputStreamReader(in));
 
-            String line = "";
+            Map<String, List<String>> headerFields = urlConnection.getHeaderFields();
 
-            while (line != null) {
+//            List<String> headers = headerFields.values().stream()
+//                    .collect(ArrayList::new, ArrayList::addAll, ArrayList::addAll);
+//
+//
+//            headers.forEach(System.out::println);
 
-                line = inputStream.readLine();
-                System.out.println(line);
-            }
+            headerFields.forEach((s, strings) -> {
+
+                System.out.println("-----Key: " + s);
+                strings.forEach(s1 -> {
+                    System.out.println("\t\tValue: " + s1);
+                });
+            });
 
             inputStream.close();
 

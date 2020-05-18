@@ -49,6 +49,6 @@
     <li>Lambda expressions and Streams, Functional programming in Java</li>
     <li>Regular expressions</li>
     <li>Debuggin intro and Unit testing.</li>
-    <li>Databases, using SQLITE3</li> // Currently doing this lesson.
-    <li>Networking in Java.</li>
+    <li>Databases, using SQLITE3</li> 
+    <li>Networking in Java.</li> // Currently doing this lesson.
 </ol>
